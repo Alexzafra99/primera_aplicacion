@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          contador = contador+1;
+          contador++;
           setState(() {
             
           });
