@@ -73,23 +73,14 @@ class _ContadorPageState extends State<ContadorPage> {
   }
 
   void suma() {
-    _contador++;
-    setState(() {
-            
-    });
+    setState(() => _contador++);
   }
 
   void resta() {
-    _contador--;
-    setState(() {
-            
-    });
+    setState(() => _contador--);
   }
 
   void cero() {
-    _contador=0;
-    setState(() {
-            
-    });
+    setState(() => _contador=0);
   }
 }
