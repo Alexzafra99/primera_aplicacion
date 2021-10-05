@@ -33,19 +33,63 @@ class _ContadorPageState extends State<ContadorPage> {
             ], 
           )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          _contador++;
-          setState(() {
-            
-          });
-        },
-        child: 
-          Icon (Icons.add),
-      ),
+      floatingActionButton: crearBotones()
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      
     );
-    
+  }
+
+  Widget crearBotones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        SizedBox(width: 30.0),
+        Boton3(),
+        Expanded(child: SizedBox()),  
+        Boton2(),
+        Boton1()]
+    );
+  }
+
+  Widget Boton1(){
+    return FloatingActionButton(
+        onPressed: suma,
+        child: 
+          Icon (Icons.add)
+      );
+  }
+  Widget Boton2(){
+    return FloatingActionButton(
+        onPressed: resta,
+        child: 
+          Icon (Icons.remove)
+      );
+  }
+  Widget Boton3(){
+    return FloatingActionButton(
+        onPressed: cero,
+        child: 
+          Icon (Icons.exposure_zero)
+      );
+  }
+
+  void suma() {
+    _contador++;
+    setState(() {
+            
+    });
+  }
+
+  void resta() {
+    _contador--;
+    setState(() {
+            
+    });
+  }
+
+  void cero() {
+    _contador=0;
+    setState(() {
+            
+    });
   }
 }
