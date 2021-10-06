@@ -29,24 +29,69 @@ class _ContadorPageState extends State<ContadorPage> {
               ),
               Text('$_contador',
                 style: _estiloTexto
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: 
+                      TextButton(
+                        onPressed: suma, 
+                        child: Text("+")
+                      )
+                  ),
+                  Expanded(
+                    child: 
+                      TextButton(
+                        onPressed: resta, 
+                        child: Text("-")
+                      )
+                  ),
+                  Expanded(
+                    child: 
+                      TextButton(
+                        onPressed: cero, 
+                        child: Text("0")
+                      )
+                  )
+          
+                ],
               )
             ], 
           )
       ),
+      
       floatingActionButton: crearBotones()
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   Widget crearBotones() {
-    return Row(
+    
+    return Column(
       mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        SizedBox(width: 30.0),
-        Boton3(),
-        Expanded(child: SizedBox()),  
-        Boton2(),
-        Boton1()]
+        Column(
+          children: [
+            Boton4(),
+            Boton5()
+          ],
+        ),
+        SizedBox(height: 15.0),
+        Row(
+          children: [
+            SizedBox(width: 30.0),
+            Boton3(),
+            Expanded(child: SizedBox()),  
+            Boton2(),
+            Boton1()
+          ]
+        )
+      ]
     );
   }
 
@@ -71,16 +116,34 @@ class _ContadorPageState extends State<ContadorPage> {
           Icon (Icons.exposure_zero)
       );
   }
+  Widget Boton4(){
+    return FloatingActionButton(
+        onPressed: mas2,
+        child: 
+          Icon (Icons.exposure_plus_2_rounded)
+      );
+  }
+  Widget Boton5(){
+    return FloatingActionButton(
+        onPressed: menos2,
+        child: 
+          Icon (Icons.exposure_neg_2_rounded)
+      );
+  }
 
   void suma() {
     setState(() => _contador++);
   }
-
   void resta() {
     setState(() => _contador--);
   }
-
   void cero() {
     setState(() => _contador=0);
+  }
+  void mas2() {
+    setState(() => _contador=_contador+2);
+  }
+  void menos2() {
+    setState(() => _contador=_contador-2);
   }
 }
